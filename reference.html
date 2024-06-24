@@ -520,6 +520,72 @@
 </dd></dl>
 
 </section>
+<section id="deflate-data-type-field-values">
+<h3>Deflate data-type field values<a class="headerlink" href="#deflate-data-type-field-values" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-binary">
+<span class="sig-name descname"><span class="pre">$z-binary</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-binary" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-text">
+<span class="sig-name descname"><span class="pre">$z-text</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-text" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-ascii">
+<span class="sig-name descname"><span class="pre">$z-ascii</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-ascii" title="Link to this definition">¶</a></dt>
+<dd><p>Default to <code class="docutils literal notranslate"><span class="pre">$z-text</span></code> for compatibility with 1.2.2 and
+earlier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-unknown">
+<span class="sig-name descname"><span class="pre">$z-unknown</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-unknown" title="Link to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="others">
+<h3>Others<a class="headerlink" href="#others" title="Link to this heading">¶</a></h3>
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-deflated">
+<span class="sig-name descname"><span class="pre">$z-deflated</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-deflated" title="Link to this definition">¶</a></dt>
+<dd><p>The deflate compression method (the only supported in this
+version).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan constant">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib:$z-null">
+<span class="sig-name descname"><span class="pre">$z-null</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib:$z-null" title="Link to this definition">¶</a></dt>
+<dd><p>For initialization, null pointer.</p>
+</dd></dl>
+
+</section>
 </section>
 <section id="utility-functions">
 <h2>Utility functions<a class="headerlink" href="#utility-functions" title="Link to this heading">¶</a></h2>
@@ -615,6 +681,8 @@ in the compression process it raises an error.</p>
 <li><a class="reference internal" href="#return-codes-for-the-compression-decompression">Return codes for the compression/decompression</a></li>
 <li><a class="reference internal" href="#compression-levels">Compression levels</a></li>
 <li><a class="reference internal" href="#compression-strategy">Compression strategy</a></li>
+<li><a class="reference internal" href="#deflate-data-type-field-values">Deflate data-type field values</a></li>
+<li><a class="reference internal" href="#others">Others</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#utility-functions">Utility functions</a></li>

@@ -119,6 +119,42 @@ Compression strategy
 
    :type: :drm:`<integer>`
 
+Deflate data-type field values
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. constant:: $z-binary
+
+   :type: :drm:`<integer>`
+
+.. constant:: $z-text
+
+   :type: :drm:`<integer>`
+
+.. constant:: $z-ascii
+
+   Default to ``$z-text`` for compatibility with 1.2.2 and
+   earlier.
+
+   :type: :drm:`<integer>`
+
+.. constant:: $z-unknown
+
+   :type: :drm:`<integer>`
+
+Others
+^^^^^^
+
+.. constant:: $z-deflated
+
+   The deflate compression method (the only supported in this
+   version).
+
+   :type: :drm:`<integer>`
+
+.. constant:: $z-null
+
+   For initialization, null pointer.
+
 Utility functions
 -----------------
 
