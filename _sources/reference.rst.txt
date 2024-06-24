@@ -1,0 +1,98 @@
+Reference
+=========
+
+.. current-library:: zlib
+.. current-module:: zlib		     
+
+Constants
+---------
+
+Flush values
+^^^^^^^^^^^^
+
+.. constant:: $z-no-flush
+
+.. constant:: $z-partial-flush
+
+.. constant:: $z-sync-flush
+
+.. constant:: $z-full-flush
+
+.. constant:: $z-finish
+
+.. constant:: $z-block
+
+.. constant:: $z-trees
+
+Return codes for the compression/decompression
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. constant:: $z-ok
+
+.. constant:: $z-stream-end
+
+.. constant:: $z-need-dict
+
+.. constant:: $z-errno
+
+.. constant:: $z-stream-error
+
+.. constant:: $z-data-error
+
+.. constant:: $z-mem-error
+
+.. constant:: $z-buf-error
+
+.. constant:: $z-version-error
+
+Compression levels
+^^^^^^^^^^^^^^^^^^
+
+.. constant:: $z-no-compression
+
+.. constant:: $z-best-speed
+
+.. constant:: $z-best-compression
+
+.. constant:: $z-default-compression
+
+Compression strategy
+^^^^^^^^^^^^^^^^^^^^
+
+.. constant:: $z-filtered
+
+.. constant:: $z-huffman-only
+
+.. constant:: $z-rle
+
+.. constant:: $z-fixed
+
+.. constant:: $z-default-strategy	      
+
+Utility functions
+-----------------
+
+These functions are implemented on top of the basic zlib
+stream-oriented functions. To simplify the interface, some default
+options are assumed (compression level and memory usage).
+
+
+.. function:: compress
+
+   Compress a string.
+
+   :signature: compress *string* => (compressed-string)
+
+   :parameter string: String to compress. An instance of :drm:`<string>`
+   :value compressed-string: An instance of :drm:`<string>`
+
+   :description:
+
+   Compress the source string into a new string. If there is a problem
+   in the compression process it raises an error.
+
+   :example:
+
+   .. code-block:: dylan
+
+      let compressed = compress("Hello");
