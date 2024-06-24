@@ -2,7 +2,7 @@ Reference
 =========
 
 .. current-library:: zlib
-.. current-module:: zlib
+.. current-module:: zlib-binding
 
 Constants
 ---------
@@ -163,22 +163,37 @@ stream-oriented functions. To simplify the interface, some default
 options are assumed (compression level and memory usage).
 
 
-.. function:: compress
+.. function:: z-compress
 
    Compress a string.
 
-   :signature: compress *string* => (compressed-string)
+   :signature: z-compress *string* *destination-length* *source* *source-lenght* => (return-code)
 
-   :parameter string: String to compress. An instance of :drm:`<string>`
-   :value compressed-string: An instance of :drm:`<string>`
+   :parameter destination:
 
-   :description:
+      Destination buffer of the compressed string.
+      An instance of :class:`<C-string>`
 
-   Compress the source string into a new string. If there is a problem
-   in the compression process it raises an error.
+   :parameter destination-length:
 
-   :example:
+      Byte length of the destination buffer, which must be at least
+      the value returned by :func:`z-compressBound`. At exit it
+      contains the actual size of compressed data. An instance of
+      :class:`<C-unsigned-long*>`
 
-   .. code-block:: dylan
+   :parameter source:
 
-      let compressed = compress("Hello");
+      String to compress. An instance of :drm:`<string>`
+
+   :parameter source-length:
+
+      Byte length of the source buffer.
+      An instance of :class:`<C-unsigned-long>`
+
+   :value return-code: An instance of :drm:`<integer>`
+
+   :discussion:
+
+   It's equivalent to :func:`z-compress-2` with a level parameter
+   ``$z-default-compression``.
+
