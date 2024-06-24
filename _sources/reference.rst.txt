@@ -2,7 +2,7 @@ Reference
 =========
 
 .. current-library:: zlib
-.. current-module:: zlib		     
+.. current-module:: zlib
 
 Constants
 ---------
@@ -12,62 +12,112 @@ Flush values
 
 .. constant:: $z-no-flush
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-partial-flush
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-sync-flush
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-full-flush
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-finish
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-block
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-trees
+
+   :type: :drm:`<integer>`
 
 Return codes for the compression/decompression
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. constant:: $z-ok
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-stream-end
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-need-dict
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-errno
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-stream-error
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-data-error
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-mem-error
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-buf-error
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-version-error
+
+   :type: :drm:`<integer>`
 
 Compression levels
 ^^^^^^^^^^^^^^^^^^
 
 .. constant:: $z-no-compression
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-best-speed
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-best-compression
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-default-compression
+
+   :type: :drm:`<integer>`
 
 Compression strategy
 ^^^^^^^^^^^^^^^^^^^^
 
 .. constant:: $z-filtered
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-huffman-only
+
+   :type: :drm:`<integer>`
 
 .. constant:: $z-rle
 
+   :type: :drm:`<integer>`
+
 .. constant:: $z-fixed
 
-.. constant:: $z-default-strategy	      
+   :type: :drm:`<integer>`
+
+.. constant:: $z-default-strategy
+
+   :type: :drm:`<integer>`
 
 Utility functions
 -----------------
