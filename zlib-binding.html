@@ -6,7 +6,7 @@
 <link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="zlib" href="index.html" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
-        <title>Reference - Zlib 0.1.0 documentation</title>
+        <title>zlib-binding - Zlib 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo.css?v=387cc868" />
     <link rel="stylesheet" type="text/css" href="_static/styles/furo-extensions.css?v=36a5483c" />
@@ -213,7 +213,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">Reference</a></li>
+<li class="toctree-l1 current current-page"><a class="current reference internal" href="#">zlib-binding</a></li>
 </ul>
 
 </div>
@@ -234,7 +234,7 @@
         </a>
         <div class="content-icon-container">
           <div class="view-this-page">
-  <a class="muted-link" href="_sources/reference.rst.txt" title="View this page">
+  <a class="muted-link" href="_sources/zlib-binding.rst.txt" title="View this page">
     <svg><use href="#svg-eye"></use></svg>
     <span class="visually-hidden">View this page</span>
   </a>
@@ -254,8 +254,9 @@
           </label>
         </div>
         <article role="main" id="furo-main-content">
-          <section id="reference">
-<h1>Reference<a class="headerlink" href="#reference" title="Link to this heading">¶</a></h1>
+          <section id="zlib-binding">
+<h1>zlib-binding<a class="headerlink" href="#zlib-binding" title="Link to this heading">¶</a></h1>
+<p>This module binds the functions of the zlib library.</p>
 <section id="constants">
 <h2>Constants<a class="headerlink" href="#constants" title="Link to this heading">¶</a></h2>
 <section id="flush-values">
@@ -333,10 +334,13 @@
 </section>
 <section id="return-codes-for-the-compression-decompression">
 <h3>Return codes for the compression/decompression<a class="headerlink" href="#return-codes-for-the-compression-decompression" title="Link to this heading">¶</a></h3>
+<p>Negative values are errors, positive values are used for special but
+normal events.</p>
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-ok">
 <span class="sig-name descname"><span class="pre">$z-ok</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-ok" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Returned if the operation was a success.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -346,7 +350,9 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-stream-end">
 <span class="sig-name descname"><span class="pre">$z-stream-end</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-stream-end" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>The end of the compressed data has been reached and all
+uncompressed output has been produced.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -356,7 +362,8 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-need-dict">
 <span class="sig-name descname"><span class="pre">$z-need-dict</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-need-dict" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>If a preset dictionary is needed.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -376,7 +383,8 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-stream-error">
 <span class="sig-name descname"><span class="pre">$z-stream-error</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-stream-error" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Returned if the compression level is not valid.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -396,7 +404,8 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-mem-error">
 <span class="sig-name descname"><span class="pre">$z-mem-error</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-mem-error" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Returned if there was not enough memory.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -406,7 +415,9 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-buf-error">
 <span class="sig-name descname"><span class="pre">$z-buf-error</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-buf-error" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>If no progress was possible or if there was not enough room in the
+output buffer when <code class="docutils literal notranslate"><span class="pre">$z-finish</span></code> is used.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -416,7 +427,9 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-version-error">
 <span class="sig-name descname"><span class="pre">$z-version-error</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-version-error" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Returned if the z library version is incompatible with the version
+assumed by the caller.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -425,11 +438,16 @@
 
 </section>
 <section id="compression-levels">
-<h3>Compression levels<a class="headerlink" href="#compression-levels" title="Link to this heading">¶</a></h3>
+<span id="id1"></span><h3>Compression levels<a class="headerlink" href="#compression-levels" title="Link to this heading">¶</a></h3>
+<p>The compression levels are a number between 0 and 9. 1 gives best
+speed, 9 gives best compression, 0 gives no compression at all (all
+the input is simply copied a block a time).</p>
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-no-compression">
 <span class="sig-name descname"><span class="pre">$z-no-compression</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-no-compression" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Uses no compression at all (all the input is simply copied a block
+a time).</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -439,7 +457,8 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-best-speed">
 <span class="sig-name descname"><span class="pre">$z-best-speed</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-best-speed" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Gives better speed at the cost of less compression.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -449,7 +468,8 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-best-compression">
 <span class="sig-name descname"><span class="pre">$z-best-compression</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-best-compression" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Best compression but less speed.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -459,7 +479,9 @@
 <dl class="dylan constant">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:$z-default-compression">
 <span class="sig-name descname"><span class="pre">$z-default-compression</span></span> <em class="property"><span class="pre">Constant</span></em><a class="headerlink" href="#zlib:zlib-binding:$z-default-compression" title="Link to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
+<dd><p>Requests a default compromise between speed and compression
+(currently equivalent to level 6).</p>
+<dl class="field-list simple">
 <dt class="field-odd">Type<span class="colon">:</span></dt>
 <dd class="field-odd"><p><a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p>
 </dd>
@@ -598,16 +620,16 @@ options are assumed (compression level and memory usage).</p>
 <dd><p>Compress a string.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Signature<span class="colon">:</span></dt>
-<dd class="field-odd"><p>z-compress <em>string</em> <em>destination-length</em> <em>source</em> <em>source-lenght</em> =&gt; (return-code)</p>
+<dd class="field-odd"><p>z-compress <em>string</em> <em>destination-length</em> <em>source</em> <em>source-length</em> =&gt; (return-code)</p>
 </dd>
 <dt class="field-even">Parameters<span class="colon">:</span></dt>
 <dd class="field-even"><ul class="simple">
 <li><p><strong>destination</strong> – Destination buffer of the compressed string.
 An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-string&gt;</span></code></p></li>
 <li><p><strong>destination-length</strong> – Byte length of the destination buffer, which must be at least
-the value returned by <code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compressBound</span></code>. At exit it
+the value returned by <a class="reference internal" href="#zlib:zlib-binding:z-compress-bound"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-bound</span></code></a>. At exit it
 contains the actual size of compressed data. An instance of
-<code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-unsigned-long*&gt;</span></code></p></li>
+<a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p></li>
 <li><p><strong>source</strong> – String to compress. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a></p></li>
 <li><p><strong>source-length</strong> – Byte length of the source buffer.
 An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-unsigned-long&gt;</span></code></p></li>
@@ -615,15 +637,77 @@ An instance of <code class="xref dylan dylan-class docutils literal notranslate"
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p></li>
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <code class="docutils literal notranslate"><span class="pre">$z-ok</span></code> if success,
+<code class="docutils literal notranslate"><span class="pre">$z-mem-error</span></code> if there was not enough memory,
+<code class="docutils literal notranslate"><span class="pre">$z-buf-error</span></code> if there was not enough room in the output
+buffer.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>It’s equivalent to <a class="reference internal" href="#zlib:zlib-binding:z-compress-2"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-2</span></code></a> with a <em>level</em> parameter
+<code class="docutils literal notranslate"><span class="pre">$z-default-compression</span></code>.</p>
 </dd>
 </dl>
-<p>It’s equivalent to <code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-2</span></code> with a level parameter
-<code class="docutils literal notranslate"><span class="pre">$z-default-compression</span></code>.</p>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-compress-2">
+<span class="sig-name descname"><span class="pre">z-compress-2</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-compress-2" title="Link to this definition">¶</a></dt>
+<dd><p>Compress a string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>z-compress-2 <em>string</em> <em>destination-length</em> <em>source</em> <em>source-length</em> <em>level</em> =&gt; (<em>return-code</em>)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>destination</strong> – Destination buffer of the compressed string.
+An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-string&gt;</span></code></p></li>
+<li><p><strong>destination-length</strong> – Byte length of the destination buffer, which must be at least
+the value returned by <a class="reference internal" href="#zlib:zlib-binding:z-compress-bound"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-bound</span></code></a>. At exit it
+contains the actual size of compressed data. An instance of
+<a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a></p></li>
+<li><p><strong>source</strong> – String to compress. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a></p></li>
+<li><p><strong>source-length</strong> – Byte length of the source buffer.
+An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-unsigned-long&gt;</span></code></p></li>
+<li><p><strong>level</strong> – The compression level must be <code class="docutils literal notranslate"><span class="pre">$z-default-compression</span></code>, or a
+number between 0 and 9. See <a class="reference internal" href="#compression-levels"><span class="std std-ref">Compression levels</span></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <code class="docutils literal notranslate"><span class="pre">$z-ok</span></code> if success,
+<code class="docutils literal notranslate"><span class="pre">$z-mem-error</span></code> if there was not enough memory,
+<code class="docutils literal notranslate"><span class="pre">$z-buf-error</span></code> if there was not enough room in the output
+buffer.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-compress-bound">
+<span class="sig-name descname"><span class="pre">z-compress-bound</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-compress-bound" title="Link to this definition">¶</a></dt>
+<dd><p>Returns an upper bound on the compressed size after
+<a class="reference internal" href="#zlib:zlib-binding:z-compress"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress</span></code></a> or <a class="reference internal" href="#zlib:zlib-binding:z-compress-2"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-2</span></code></a> on <em>source-length</em>
+bytes. It would be used before a <a class="reference internal" href="#zlib:zlib-binding:z-compress"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress</span></code></a> or
+<a class="reference internal" href="#zlib:zlib-binding:z-compress-2"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-2</span></code></a> call to allocate the destination buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>z-compress-bound <em>source-length</em> =&gt; (<em>return-code</em>)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>source-length</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Is the length in bytes of the
+source buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Number of bytes of the upper
+bound.</p></li>
+</ul>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -676,7 +760,7 @@ An instance of <code class="xref dylan dylan-class docutils literal notranslate"
         <div class="toc-tree-container">
           <div class="toc-tree">
             <ul>
-<li><a class="reference internal" href="#">Reference</a><ul>
+<li><a class="reference internal" href="#">zlib-binding</a><ul>
 <li><a class="reference internal" href="#constants">Constants</a><ul>
 <li><a class="reference internal" href="#flush-values">Flush values</a></li>
 <li><a class="reference internal" href="#return-codes-for-the-compression-decompression">Return codes for the compression/decompression</a></li>
