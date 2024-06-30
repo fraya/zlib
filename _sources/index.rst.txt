@@ -6,6 +6,7 @@ zlib
    :caption: Contents:
    :hidden:
 
+   zlib
    zlib-binding
 
 This is the binding to the `Zlib <https://www.zlib.net/>`_ library
@@ -17,7 +18,7 @@ The library is structured in two layers of modules:
   library, making the C language functions and constants accessible to
   Open Dylan.
 
-* The module ``zlib`` sits on top of :doc:`zlib-binding` and offers a
+* The module :doc:`zlib` sits on top of :doc:`zlib-binding` and offers a
   more idiomatic access to the functionality.
 
 Indices and tables

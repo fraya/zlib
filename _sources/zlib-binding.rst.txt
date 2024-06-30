@@ -201,6 +201,9 @@ These functions are implemented on top of the basic zlib
 stream-oriented functions. To simplify the interface, some default
 options are assumed (compression level and memory usage).
 
+``z-compress``
+^^^^^^^^^^^^^^
+
 .. function:: z-compress
 
    Compress a string.
@@ -232,15 +235,18 @@ options are assumed (compression level and memory usage).
 
    :value return-code:
 
-      An instance of :drm:`<integer>`. Returns ``$z-ok`` if success,
-      ``$z-mem-error`` if there was not enough memory,
-      ``$z-buf-error`` if there was not enough room in the output
+      An instance of :drm:`<integer>`. Returns :const:`$z-ok` if
+      success, :const:`$z-mem-error` if there was not enough memory,
+      :const:`$z-buf-error` if there was not enough room in the output
       buffer.
 
    :discussion:
 
       It's equivalent to :func:`z-compress-2` with a *level* parameter
-      ``$z-default-compression``.
+      :const:`$z-default-compression`.
+
+``z-compress-2``
+^^^^^^^^^^^^^^^^
 
 .. function:: z-compress-2
 
@@ -273,15 +279,22 @@ options are assumed (compression level and memory usage).
 
    :parameter level:
 
-      The compression level must be ``$z-default-compression``, or a
-      number between 0 and 9. See :ref:`Compression levels`.
+      An instance of :drm:`<integer>`. The compression level must be
+      :const:`$z-default-compression`, or a number between 0 and 9.
+
+      :seealso:
+
+	 See :ref:`Compression levels`.
 
    :value return-code:
 
-      An instance of :drm:`<integer>`. Returns ``$z-ok`` if success,
-      ``$z-mem-error`` if there was not enough memory,
-      ``$z-buf-error`` if there was not enough room in the output
+      An instance of :drm:`<integer>`. Returns :const:`$z-ok` if
+      success, :const:`$z-mem-error` if there was not enough memory,
+      :const:`$z-buf-error` if there was not enough room in the output
       buffer.
+
+``z-compress-bound``
+^^^^^^^^^^^^^^^^^^^^
 
 .. function:: z-compress-bound
 
@@ -304,7 +317,10 @@ options are assumed (compression level and memory usage).
       An instance of :drm:`<integer>`. Number of bytes of the upper
       bound.
 
-.. func:: z-uncompress
+``z-uncompress``
+^^^^^^^^^^^^^^^^
+
+.. function:: z-uncompress
 
    Uncompress a previously compressed string.
 
@@ -337,10 +353,57 @@ options are assumed (compression level and memory usage).
 
    :value return-code:
 
-      An instance of :drm:`<integer>`. Returns ``$z-ok`` if success,
-      ``$z-mem-error`` if there was not enough memory,
-      ``$z-buf-error`` if there was not enough room in the output
-      buffer, or ``$z-data-error`` if the input data was corrupted or
+      An instance of :drm:`<integer>`. Returns :const:`$z-ok` if
+      success, :const:`$z-mem-error` if there was not enough memory,
+      :const:`$z-buf-error` if there was not enough room in the output
+      buffer, or :const:`$z-data-error` if the input data was corrupted or
       incomplete. In the case where there is not enough room, this
       function will fill the output buffer with the uncompressed data
       up to that point.
+
+``z-uncompress-2``
+^^^^^^^^^^^^^^^^^^
+
+.. function:: z-uncompress-2
+
+   Uncompress a previously compressed string. Same as
+   :func:`z-uncompress`, except that *source-length* is a pointer,
+   where the length of the source is *source-length*. On return
+   *source-length* is the number of source bytes consumed.
+
+   :signature:
+
+      z-uncompress-2 *destination* *destination-length* *source* *source-length* => (*return-code*)
+
+   :parameter destination:
+
+      An instance of :drm:`<string>`. Destination of uncompressed *source*.
+
+   :parameter destination-length:
+
+      An instance of :drm:`<integer>`. Upon entry is the total size of
+      the destination buffer, which must be large enough to hold the
+      entire uncompressed data. The size of the uncompressed data must
+      have been saved previously by the compressor and transmitted to
+      the decompressor by some mechanism outside the scope of this
+      compression library. Upon exit, *destination-length* is the
+      actual size of the compressed data.
+
+   :parameter source:
+
+      An instance of :drm:`<string>`. Compressed string.
+
+   :parameter source-length:
+
+      An instance of :drm:`<integer>`. On return is the number of
+      source bytes consumed.
+
+   :value return-code:
+
+      An instance of :drm:`<integer>`. Returns :const:`$z-ok` if
+      success, :const:`$z-mem-error` if there was not enough memory,
+      :const:`$z-buf-error` if there was not enough room in the output
+      buffer, or :const:`$z-data-error` if the input data was
+      corrupted or incomplete. In the case where there is not enough
+      room, this function will fill the output buffer with the
+      uncompressed data up to that point.

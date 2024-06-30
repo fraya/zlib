@@ -3,7 +3,7 @@
   <head><meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width,initial-scale=1"/>
     <meta name="color-scheme" content="light dark"><meta name="viewport" content="width=device-width, initial-scale=1" />
-<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="zlib" href="index.html" />
+<link rel="index" title="Index" href="genindex.html" /><link rel="search" title="Search" href="search.html" /><link rel="prev" title="zlib" href="zlib.html" />
 
     <!-- Generated with Sphinx 7.3.7 and Furo 2024.05.06 -->
         <title>zlib-binding - Zlib 0.1.0 documentation</title>
@@ -213,6 +213,7 @@
 <div id="searchbox"></div><div class="sidebar-scroll"><div class="sidebar-tree">
   <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="zlib.html">zlib</a></li>
 <li class="toctree-l1 current current-page"><a class="current reference internal" href="#">zlib-binding</a></li>
 </ul>
 
@@ -614,6 +615,8 @@ version).</p>
 <p>These functions are implemented on top of the basic zlib
 stream-oriented functions. To simplify the interface, some default
 options are assumed (compression level and memory usage).</p>
+<section id="z-compress">
+<h3><code class="docutils literal notranslate"><span class="pre">z-compress</span></code><a class="headerlink" href="#z-compress" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-compress">
 <span class="sig-name descname"><span class="pre">z-compress</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-compress" title="Link to this definition">¶</a></dt>
@@ -637,19 +640,22 @@ An instance of <code class="xref dylan dylan-class docutils literal notranslate"
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <code class="docutils literal notranslate"><span class="pre">$z-ok</span></code> if success,
-<code class="docutils literal notranslate"><span class="pre">$z-mem-error</span></code> if there was not enough memory,
-<code class="docutils literal notranslate"><span class="pre">$z-buf-error</span></code> if there was not enough room in the output
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <a class="reference internal" href="#zlib:zlib-binding:$z-ok"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-ok</span></code></a> if
+success, <a class="reference internal" href="#zlib:zlib-binding:$z-mem-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-mem-error</span></code></a> if there was not enough memory,
+<a class="reference internal" href="#zlib:zlib-binding:$z-buf-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-buf-error</span></code></a> if there was not enough room in the output
 buffer.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Discussion<span class="colon">:</span></dt>
 <dd class="field-even"><p>It’s equivalent to <a class="reference internal" href="#zlib:zlib-binding:z-compress-2"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-compress-2</span></code></a> with a <em>level</em> parameter
-<code class="docutils literal notranslate"><span class="pre">$z-default-compression</span></code>.</p>
+<a class="reference internal" href="#zlib:zlib-binding:$z-default-compression"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-default-compression</span></code></a>.</p>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="z-compress-2">
+<h3><code class="docutils literal notranslate"><span class="pre">z-compress-2</span></code><a class="headerlink" href="#z-compress-2" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-compress-2">
 <span class="sig-name descname"><span class="pre">z-compress-2</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-compress-2" title="Link to this definition">¶</a></dt>
@@ -669,21 +675,30 @@ contains the actual size of compressed data. An instance of
 <li><p><strong>source</strong> – String to compress. An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a></p></li>
 <li><p><strong>source-length</strong> – Byte length of the source buffer.
 An instance of <code class="xref dylan dylan-class docutils literal notranslate"><span class="pre">&lt;C-unsigned-long&gt;</span></code></p></li>
-<li><p><strong>level</strong> – The compression level must be <code class="docutils literal notranslate"><span class="pre">$z-default-compression</span></code>, or a
-number between 0 and 9. See <a class="reference internal" href="#compression-levels"><span class="std std-ref">Compression levels</span></a>.</p></li>
+<li><p><strong>level</strong> – <p>An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. The compression level must be
+<a class="reference internal" href="#zlib:zlib-binding:$z-default-compression"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-default-compression</span></code></a>, or a number between 0 and 9.</p>
+<dl class="field-list simple">
+<dt class="field-odd">seealso<span class="colon">:</span></dt>
+<dd class="field-odd"><p>See <a class="reference internal" href="#compression-levels"><span class="std std-ref">Compression levels</span></a>.</p>
+</dd>
+</dl>
+</p></li>
 </ul>
 </dd>
 <dt class="field-odd">Values<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <code class="docutils literal notranslate"><span class="pre">$z-ok</span></code> if success,
-<code class="docutils literal notranslate"><span class="pre">$z-mem-error</span></code> if there was not enough memory,
-<code class="docutils literal notranslate"><span class="pre">$z-buf-error</span></code> if there was not enough room in the output
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <a class="reference internal" href="#zlib:zlib-binding:$z-ok"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-ok</span></code></a> if
+success, <a class="reference internal" href="#zlib:zlib-binding:$z-mem-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-mem-error</span></code></a> if there was not enough memory,
+<a class="reference internal" href="#zlib:zlib-binding:$z-buf-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-buf-error</span></code></a> if there was not enough room in the output
 buffer.</p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
+</section>
+<section id="z-compress-bound">
+<h3><code class="docutils literal notranslate"><span class="pre">z-compress-bound</span></code><a class="headerlink" href="#z-compress-bound" title="Link to this heading">¶</a></h3>
 <dl class="dylan function">
 <dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-compress-bound">
 <span class="sig-name descname"><span class="pre">z-compress-bound</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-compress-bound" title="Link to this definition">¶</a></dt>
@@ -711,6 +726,90 @@ bound.</p></li>
 </dd></dl>
 
 </section>
+<section id="z-uncompress">
+<h3><code class="docutils literal notranslate"><span class="pre">z-uncompress</span></code><a class="headerlink" href="#z-uncompress" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-uncompress">
+<span class="sig-name descname"><span class="pre">z-uncompress</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-uncompress" title="Link to this definition">¶</a></dt>
+<dd><p>Uncompress a previously compressed string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>z-uncompress <em>destination</em> <em>destination-length</em> <em>source</em> <em>source-length</em> =&gt; (<em>return-code</em>)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>destination</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>. Destination of uncompressed <em>source</em>.</p></li>
+<li><p><strong>destination-length</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Upon entry is the total size of
+the destination buffer, which must be large enough to hold the
+entire uncompressed data. The size of the uncompressed data must
+have been saved previously by the compressor and transmitted to
+the decompressor by some mechanism outside the scope of this
+compression library. Upon exit, <em>destination-length</em> is the
+actual size of the compressed data.</p></li>
+<li><p><strong>source</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>. Compressed string.</p></li>
+<li><p><strong>source-length</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Byte length of the source
+buffer.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <a class="reference internal" href="#zlib:zlib-binding:$z-ok"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-ok</span></code></a> if
+success, <a class="reference internal" href="#zlib:zlib-binding:$z-mem-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-mem-error</span></code></a> if there was not enough memory,
+<a class="reference internal" href="#zlib:zlib-binding:$z-buf-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-buf-error</span></code></a> if there was not enough room in the output
+buffer, or <a class="reference internal" href="#zlib:zlib-binding:$z-data-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-data-error</span></code></a> if the input data was corrupted or
+incomplete. In the case where there is not enough room, this
+function will fill the output buffer with the uncompressed data
+up to that point.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="z-uncompress-2">
+<h3><code class="docutils literal notranslate"><span class="pre">z-uncompress-2</span></code><a class="headerlink" href="#z-uncompress-2" title="Link to this heading">¶</a></h3>
+<dl class="dylan function">
+<dt class="sig sig-object dylan-api dylan" id="zlib:zlib-binding:z-uncompress-2">
+<span class="sig-name descname"><span class="pre">z-uncompress-2</span></span> <em class="property"><span class="pre">Function</span></em><a class="headerlink" href="#zlib:zlib-binding:z-uncompress-2" title="Link to this definition">¶</a></dt>
+<dd><p>Uncompress a previously compressed string. Same as
+<a class="reference internal" href="#zlib:zlib-binding:z-uncompress"><code class="xref dylan dylan-func docutils literal notranslate"><span class="pre">z-uncompress</span></code></a>, except that <em>source-length</em> is a pointer,
+where the length of the source is <em>source-length</em>. On return
+<em>source-length</em> is the number of source bytes consumed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Signature<span class="colon">:</span></dt>
+<dd class="field-odd"><p>z-uncompress-2 <em>destination</em> <em>destination-length</em> <em>source</em> <em>source-length</em> =&gt; (<em>return-code</em>)</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>destination</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>. Destination of uncompressed <em>source</em>.</p></li>
+<li><p><strong>destination-length</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Upon entry is the total size of
+the destination buffer, which must be large enough to hold the
+entire uncompressed data. The size of the uncompressed data must
+have been saved previously by the compressor and transmitted to
+the decompressor by some mechanism outside the scope of this
+compression library. Upon exit, <em>destination-length</em> is the
+actual size of the compressed data.</p></li>
+<li><p><strong>source</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Collection_Classes#string"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;string&gt;</span></code></a>. Compressed string.</p></li>
+<li><p><strong>source-length</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. On return is the number of
+source bytes consumed.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Values<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>return-code</strong> – An instance of <a class="reference external" href="https://opendylan.org/books/drm/Number_Classes#integer"><code class="xref drm docutils literal notranslate"><span class="pre">&lt;integer&gt;</span></code></a>. Returns <a class="reference internal" href="#zlib:zlib-binding:$z-ok"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-ok</span></code></a> if
+success, <a class="reference internal" href="#zlib:zlib-binding:$z-mem-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-mem-error</span></code></a> if there was not enough memory,
+<a class="reference internal" href="#zlib:zlib-binding:$z-buf-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-buf-error</span></code></a> if there was not enough room in the output
+buffer, or <a class="reference internal" href="#zlib:zlib-binding:$z-data-error"><code class="xref dylan dylan-const docutils literal notranslate"><span class="pre">$z-data-error</span></code></a> if the input data was
+corrupted or incomplete. In the case where there is not enough
+room, this function will fill the output buffer with the
+uncompressed data up to that point.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
 </section>
 
         </article>
@@ -719,14 +818,14 @@ bound.</p></li>
         
         <div class="related-pages">
           
-          <a class="prev-page" href="index.html">
+          <a class="prev-page" href="zlib.html">
               <svg class="furo-related-icon"><use href="#svg-arrow-right"></use></svg>
               <div class="page-info">
                 <div class="context">
                   <span>Previous</span>
                 </div>
                 
-                <div class="title">Home</div>
+                <div class="title">zlib</div>
                 
               </div>
             </a>
@@ -770,7 +869,14 @@ bound.</p></li>
 <li><a class="reference internal" href="#others">Others</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#utility-functions">Utility functions</a></li>
+<li><a class="reference internal" href="#utility-functions">Utility functions</a><ul>
+<li><a class="reference internal" href="#z-compress"><code class="docutils literal notranslate"><span class="pre">z-compress</span></code></a></li>
+<li><a class="reference internal" href="#z-compress-2"><code class="docutils literal notranslate"><span class="pre">z-compress-2</span></code></a></li>
+<li><a class="reference internal" href="#z-compress-bound"><code class="docutils literal notranslate"><span class="pre">z-compress-bound</span></code></a></li>
+<li><a class="reference internal" href="#z-uncompress"><code class="docutils literal notranslate"><span class="pre">z-uncompress</span></code></a></li>
+<li><a class="reference internal" href="#z-uncompress-2"><code class="docutils literal notranslate"><span class="pre">z-uncompress-2</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
