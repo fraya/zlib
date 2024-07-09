@@ -44,8 +44,11 @@ Flush values
 Return codes for the compression/decompression
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Negative values are errors, positive values are used for special but
-normal events.
+Positive values are used for special but normal events:
+
+- :const:`$z-ok`
+- :const:`$z-stream-end`
+- :const:`$z-need-dict`
 
 .. constant:: $z-ok
 
@@ -65,6 +68,15 @@ normal events.
    If a preset dictionary is needed.
 
    :type: :drm:`<integer>`
+
+Negative values are errors:
+
+- :const:`$z-errno`
+- :const:`$z-stream-error`
+- :const:`$z-data-error`
+- :const:`$z-mem-error`
+- :const:`$z-buf-error`
+- :const:`$z-version-error`
 
 .. constant:: $z-errno
 

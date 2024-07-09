@@ -35,23 +35,45 @@ Conditions
 
    :superclasses: :class:`<zlib-error>`
 
+   :seealso:
+
+      See :const:`$z-stream-error`.
+
 .. class:: <zlib-data-error>
 
    :superclasses: :class:`<zlib-error>`
+
+   :seealso:
+
+      See :const:`$z-data-error`.
 
 .. class:: <zlib-memory-error>
 
    :superclasses: :class:`<zlib-error>`
 
+   :seealso:
+
+      See :const:`$z-mem-error`.
+
 .. class:: <zlib-buffer-error>
 
    :superclasses: :class:`<zlib-error>`
+
+   :seealso:
+
+      See :const:`$z-buf-error`.
 
 .. class:: <zlib-version-error>
 
    :superclasses: :class:`<zlib-error>`
 
+   :seealso:
+
+      See :const:`$z-version-error`.
+
 .. class:: <zlib-unexpected-error>
+
+   There was an unexpected error compressing or decompressing.
 
    :superclasses: :class:`<zlib-error>`
 
